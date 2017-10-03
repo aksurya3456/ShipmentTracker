@@ -16,6 +16,7 @@
         />
 
     <EditText
+        android:id="@+id/phone"
         android:layout_margin="18px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Continue"
+        android:onClick="onClick"
 
         />
 
