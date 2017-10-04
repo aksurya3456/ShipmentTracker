@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     {
         EditText editText =(EditText) findViewById(R.id.phone);
         String mobile = editText.getText().toString();
-        String otpResponse = MainActivityImplementer.generateOTP(this,mobile);
+
+        String otpResponse = MainActivityImplementer.jsonRequest(this,mobile);
         response.setText(otpResponse);
 
         /*if(otpGenerated) {
