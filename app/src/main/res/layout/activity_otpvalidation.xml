@@ -6,22 +6,20 @@
     android:layout_height="match_parent"
     android:gravity="start"
     android:orientation="vertical"
-    tools:context="com.msupply.shipmenttracker.MainActivity">
-
+    tools:context="com.msupply.shipmenttracker.OTPValidation">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-
         android:layout_margin="15dp"
-        android:text="Mobile Number"
+        android:text="Please enter OTP sent to your mobile"
         android:textSize="18sp"
 
         />
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/otp"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -37,19 +35,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="18dp"
-        android:onClick="onClick"
-        android:text="Continue"
-
-        />
+        android:text="Continue" />
 
     <TextView
-        android:id="@+id/response"
-        android:layout_width="wrap_content"
+        android:id="@+id/resendOTP"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_margin="18dp"
         android:gravity="center_horizontal"
-        android:text="Response Message"
-        android:textColor="@android:color/holo_red_dark" />
+        android:text="Resend OTP"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="16sp" />
 
 </LinearLayout>
