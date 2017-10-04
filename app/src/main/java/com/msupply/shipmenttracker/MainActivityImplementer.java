@@ -39,8 +39,8 @@ public final class MainActivityImplementer {
 
         JSONObject jsonObject = new JSONObject(params);
 
-
         Log.i(TAG,"params : " + new Gson().toJson(jsonObject));
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST,
                 url, jsonObject, new Response.Listener<JSONObject>() {
 
@@ -66,8 +66,11 @@ public final class MainActivityImplementer {
                 return headers;
             }
         };
-        //Log.i(TAG,"request : " + new Gson().toJson(jsonObjReq));
-        Log.i(TAG,"request : " + jsonObjReq.toString());
+
+        Log.i(TAG,"request using Gson() : " + new Gson().toJson(jsonObjReq));
+        Log.i(TAG,"request using toString() : " + jsonObjReq.toString());
+        Log.i(TAG,"request direct : " + jsonObjReq);
+
         AppController.getInstance().addToRequestQueue(jsonObjReq);
         return responseReturn;
     }
