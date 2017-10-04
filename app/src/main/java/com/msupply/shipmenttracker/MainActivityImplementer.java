@@ -1,25 +1,17 @@
 package com.msupply.shipmenttracker;
 
-import android.app.DownloadManager;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Map;
 import java.util.HashMap;
 
@@ -32,8 +24,7 @@ public final class MainActivityImplementer {
     private static final String TAG = "MainActivityImplementer";
     static String responseReturn;
     static String url = constants.baseUrl + "requestOTP.php";
-    private static String urlJsonObj = "https://api.androidhive.info/volley/person_object.json";
-    private static  String stgLogin = "http://stg.msupply.com/customer/api/v1.0/login";
+
     private static ProgressDialog pDialog;
 
 
@@ -65,6 +56,7 @@ public final class MainActivityImplementer {
             public void onErrorResponse(VolleyError error) {
                 hidepDialog();
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
+                responseReturn = error.toString();
             }
         }){
             @Override
@@ -74,7 +66,8 @@ public final class MainActivityImplementer {
                 return headers;
             }
         };
-        Log.i(TAG,"request : " + new Gson().toJson(jsonObjReq));
+        //Log.i(TAG,"request : " + new Gson().toJson(jsonObjReq));
+        Log.i(TAG,"request : " + jsonObjReq.toString());
         AppController.getInstance().addToRequestQueue(jsonObjReq);
         return responseReturn;
     }
@@ -91,8 +84,5 @@ public final class MainActivityImplementer {
             pDialog.dismiss();
     }
 
-    public static void responseCompleted(String response)
-    {
-        MainActivityImplementer.responseReturn = response;
-    }
+
 }
