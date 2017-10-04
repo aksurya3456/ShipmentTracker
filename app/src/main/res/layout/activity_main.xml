@@ -32,4 +32,13 @@
 
         />
 
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Response Message"
+        android:gravity="center_horizontal"
+        android:layout_margin="18px"
+        />
+
 </LinearLayout>
