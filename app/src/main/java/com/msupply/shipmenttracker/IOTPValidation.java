@@ -7,4 +7,5 @@ package com.msupply.shipmenttracker;
 public interface IOTPValidation {
      void OTPResponse(int status);
      void displayError(String error);
+     void resendOTPResponse(int status);
 }

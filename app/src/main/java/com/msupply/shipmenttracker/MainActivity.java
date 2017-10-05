@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements IMainActivityView  {
+public class MainActivity extends AppCompatActivity implements IMainActivityView {
 
 
     private TextView response;
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     Intent otpValidationIntent;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
         response.setText("");
         button = (Button) findViewById(R.id.continueButton);
         button.setEnabled(false);
-        otpValidationIntent = new Intent(this,OTPValidation.class);
+        otpValidationIntent = new Intent(this, OTPValidation.class);
 
         editText = (EditText) findViewById(R.id.phone);
         editText.addTextChangedListener(
@@ -47,10 +46,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
                     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                         editText.setTextColor(Color.BLACK);
                         mobile = editText.getText().toString();
-                        if(validateMobileNumber(mobile)){
+                        if (validateMobileNumber(mobile)) {
                             button.setEnabled(true);
-                        }
-                        else{
+                        } else {
                             button.setEnabled(false);
                         }
 
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     public void onClick(View v) {
 
         mobile = editText.getText().toString();
-        if(validateMobileNumber(mobile)) {
+        if (validateMobileNumber(mobile)) {
             mMainActivityImplementer = new MainActivityImplementer(this, this, mobile);
         }
     }
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     @Override
     public void displayReturnedValue(int statusCode) {
         //response.setText(String.valueOf(statusCode));
-        switch (statusCode){
+        switch (statusCode) {
             case 200:
 
 
@@ -102,17 +100,14 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     @Override
     public boolean validateMobileNumber(String mobile) {
         String mobilePattern = "[6-9]{1}[0-9]{9}";
-        if(mobile.matches(mobilePattern))
-        {
+        if (mobile.matches(mobilePattern)) {
             //Toast.makeText(this, "Mobile Number pattern valid", Toast.LENGTH_SHORT).show();
             return true;
-        }
-        else if(mobile.matches("[0-5]{1}[0-9]{9}")){
+        } else if (mobile.matches("[0-5]{1}[0-9]{9}")) {
             Toast.makeText(this, "Invalid Mobile Number", Toast.LENGTH_SHORT).show();
             editText.setTextColor(Color.RED);
             return false;
-        }
-        else {
+        } else {
             //Toast.makeText(this, "Invalid Mobile Number", Toast.LENGTH_SHORT).show();
             return false;
         }
