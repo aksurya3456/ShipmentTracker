@@ -9,42 +9,55 @@
     tools:context="com.msupply.shipmenttracker.OTPValidation">
 
     <TextView
+        android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="15dp"
-        android:text="Please enter OTP sent to your mobile"
+        android:text="Please enter OTP sent to your mobile 7736156660"
+        android:gravity="center_horizontal"
         android:textSize="18sp"
 
         />
 
     <EditText
         android:id="@+id/otp"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="15dp"
         android:gravity="center_horizontal"
         android:inputType="number"
-        android:maxLength="10" />
+        android:maxLength="6" />
 
 
     <Button
+        android:onClick="onClick"
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="18dp"
         android:text="Continue" />
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Error Message"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/resendOTP"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="18dp"
+        android:layout_margin="9dp"
         android:gravity="center_horizontal"
         android:text="Resend OTP"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="16sp" />
+
 
 </LinearLayout>

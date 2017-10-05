@@ -14,12 +14,15 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements IMainActivityView  {
 
+
     private TextView response;
     private final String TAG = this.getClass().getSimpleName();
     private MainActivityImplementer mMainActivityImplementer;
     EditText editText;
     Button button;
     String mobile;
+    Intent otpValidationIntent;
+
 
 
     @Override
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
         response.setText("");
         button = (Button) findViewById(R.id.continueButton);
         button.setEnabled(false);
+        otpValidationIntent = new Intent(this,OTPValidation.class);
 
         editText = (EditText) findViewById(R.id.phone);
         editText.addTextChangedListener(
@@ -75,10 +79,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
         //response.setText(String.valueOf(statusCode));
         switch (statusCode){
             case 200:
-                response.setText("OTP Generated Successfully.");
-                Intent otpValidationIntent = new Intent(this,OTPValidation.class);
-                otpValidationIntent.putExtra("EXTRA_MESSAGE", "OTP Generated Successfully.");
+
+
+                otpValidationIntent.putExtra(constants.MOBILE_PASS, mobile);
                 startActivity(otpValidationIntent);
+                response.setText("OTP Generated Successfully.");
                 break;
             case 400:
                 response.setText("Please enter proper mobile number.");

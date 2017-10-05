@@ -1,9 +1,9 @@
 package com.msupply.shipmenttracker;
 
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
+import android.app.ProgressDialog;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,31 +16,33 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+
+
 
 /**
- * Created by abhishek on 4/10/17.
+ * Created by abhishek on 5/10/17.
  */
 
-public final class MainActivityImplementer {
-
-    private static final String TAG = "MainActivityImplementer";
-    static String responseReturn;
-    static int responseStatus;
-    static String url = constants.baseUrl + "requestOTP.php";
-
+public final class OTPValidationImplementer {
+    private static final String TAG = "OTPValidationImpl";
     private static ProgressDialog pDialog;
-    private IMainActivityView mIMainActivityView;
-    private Context mContext;
+    Context mContext;
+    static int responseStatus;
+    static String url = constants.baseUrl + "validateOTP.php";
+    IOTPValidation mIotpValidation;
 
-    public MainActivityImplementer(Context context, IMainActivityView iMainActivityView, String mobileNumber) {
+
+
+    public OTPValidationImplementer(Context context, IOTPValidation iOTPValidation, String mobile, String otp)
+    {
         mContext = context;
-        mIMainActivityView = iMainActivityView;
-        jsonRequest(mobileNumber);
+        mIotpValidation = iOTPValidation;
+        jsonRequest(mobile,otp);
     }
 
-    private void jsonRequest(final String mobile) {
+    private void jsonRequest(final String mobile, String otp) {
         Log.i(TAG, "jsonRequest()");
         pDialog = new ProgressDialog(mContext);
         pDialog.setMessage("Please wait...");
@@ -48,6 +50,7 @@ public final class MainActivityImplementer {
         showpDialog();
         Map<String, String> params = new HashMap();
         params.put("mobile", mobile);
+        params.put("otp",otp);
 
         JSONObject jsonObject = new JSONObject(params);
 
@@ -63,7 +66,7 @@ public final class MainActivityImplementer {
                 try {
                     responseStatus = response.getInt("http_code");
                     Log.d(TAG, "responseStatus : " + responseStatus);
-                    mIMainActivityView.displayReturnedValue(responseStatus);
+                    mIotpValidation.OTPResponse(responseStatus);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -75,7 +78,7 @@ public final class MainActivityImplementer {
                 hidepDialog();
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
                 Log.d(TAG, "Error: " + error.getMessage());
-                mIMainActivityView.displayError(error.getMessage());
+                mIotpValidation.displayError(error.getMessage());
             }
         }) {
             @Override
@@ -94,6 +97,7 @@ public final class MainActivityImplementer {
 
     }
 
+
     static void showpDialog() {
         Log.i(TAG, "showpDialog()");
         if (!pDialog.isShowing())
@@ -105,6 +109,5 @@ public final class MainActivityImplementer {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-
 
 }
