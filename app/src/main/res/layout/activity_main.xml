@@ -49,7 +49,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="18dp"
         android:gravity="center_horizontal"
-        android:text="Response Message"
+        tools:text="Response Message"
         android:textColor="@android:color/holo_red_dark" />
 
 </LinearLayout>
