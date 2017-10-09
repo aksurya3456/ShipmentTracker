@@ -23,6 +23,7 @@ public class OTPValidation extends AppCompatActivity implements IOTPValidation {
     Button continueButton;
     private OTPValidationImplementer mOtpValidationImplementer;
     Intent shipmentListIntent;
+    SessionManager sessionManager ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class OTPValidation extends AppCompatActivity implements IOTPValidation {
         continueButton = (Button) findViewById(R.id.continueButton);
         continueButton.setEnabled(false);
         shipmentListIntent = new Intent(this,ShipmentList.class);
+        sessionManager = new SessionManager(getApplicationContext());
 
         info.setText("Please enter OTP sent to the mobile number " + mobile);
         otp.addTextChangedListener(new TextWatcher() {
@@ -73,6 +75,7 @@ public class OTPValidation extends AppCompatActivity implements IOTPValidation {
     public void OTPResponse(int status) {
         switch (status) {
             case 200:
+                sessionManager.setLogin(mobile);
                 shipmentListIntent.putExtra(constants.MOBILE_PASS,mobile);
                 startActivity(shipmentListIntent);
                 response.setText("OTP Verified");

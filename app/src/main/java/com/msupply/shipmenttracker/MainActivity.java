@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     Button button;
     String mobile;
     Intent otpValidationIntent;
+    Intent shipmentListIntent;
+    SessionManager sessionManager;
 
 
     @Override
@@ -33,6 +35,15 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
         button = (Button) findViewById(R.id.continueButton);
         button.setEnabled(false);
         otpValidationIntent = new Intent(this, OTPValidation.class);
+        shipmentListIntent = new Intent(this,ShipmentList.class);
+
+        sessionManager = new SessionManager(getApplicationContext());
+
+        if(sessionManager.isLoggedIn())
+        {
+            startActivity(shipmentListIntent);
+        }
+
 
         editText = (EditText) findViewById(R.id.phone);
         editText.addTextChangedListener(
