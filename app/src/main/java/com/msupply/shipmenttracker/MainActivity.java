@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
 
         if(sessionManager.isLoggedIn())
         {
+            //shipmentListIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(shipmentListIntent);
         }
 
@@ -122,5 +123,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
             //Toast.makeText(this, "Invalid Mobile Number", Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+
+    @Override
+    public void  onBackPressed(){
+        finishAffinity();
     }
 }

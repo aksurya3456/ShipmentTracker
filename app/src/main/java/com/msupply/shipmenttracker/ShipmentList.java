@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class ShipmentList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shipment_list);
 
-       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_shipment);
@@ -87,6 +88,15 @@ public class ShipmentList extends AppCompatActivity {
 
     @Override
     public void  onBackPressed(){
+        finishAffinity();
+    }
+
+    public void clear(View v)
+    {
+        SessionManager sessionManager = new SessionManager(getApplicationContext());
+        sessionManager.clear();
+        Intent mainActivityIntent = new Intent(this,MainActivity.class);
+        startActivity(mainActivityIntent);
         finish();
     }
 }

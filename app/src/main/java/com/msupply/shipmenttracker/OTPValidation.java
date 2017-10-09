@@ -78,10 +78,11 @@ public class OTPValidation extends AppCompatActivity implements IOTPValidation {
                 sessionManager.setLogin(mobile);
                 shipmentListIntent.putExtra(constants.MOBILE_PASS,mobile);
                 startActivity(shipmentListIntent);
-                response.setText("OTP Verified");
+                /*response.setText("OTP Verified");
                 resendOTP.setVisibility(View.GONE);
                 continueButton.setVisibility(View.GONE);
-                otp.setVisibility(View.GONE);
+                otp.setVisibility(View.GONE);*/
+                //finish();
                 break;
             case 400:
                 response.setText("Mobile Number or OTP is missing");
