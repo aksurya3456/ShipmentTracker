@@ -29,8 +29,8 @@ public final class OTPValidationImplementer {
     private static ProgressDialog pDialog;
     Context mContext;
     static int responseStatus;
-    static String validateOTPurl = constants.baseUrl + "validateOTP.php";
-    static String resendOTPurl = constants.baseUrl + "requestOTP.php";
+    static String validateOTPurl = constants.validateOTPurl;
+    static String resendOTPurl = constants.resendOTPurl;
     IOTPValidation mIotpValidation;
 
 

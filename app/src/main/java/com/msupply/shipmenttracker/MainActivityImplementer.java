@@ -28,7 +28,7 @@ public final class MainActivityImplementer {
     private static final String TAG = "MainActivityImplementer";
     static String responseReturn;
     static int responseStatus;
-    static String url = constants.baseUrl + "requestOTP.php";
+    static String url = constants.requestOTPurl;
 
     private static ProgressDialog pDialog;
     private IMainActivityView mIMainActivityView;

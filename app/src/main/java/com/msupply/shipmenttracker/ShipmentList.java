@@ -12,7 +12,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShipmentList extends AppCompatActivity {
+public class ShipmentList extends AppCompatActivity implements IShipmentList {
 
     private List<shipmentListRow> shipmentRowList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -39,7 +39,8 @@ public class ShipmentList extends AppCompatActivity {
 
     }
 
-    private void prepareListData()
+    @Override
+    public void prepareListData()
     {
         shipmentListRow mShipmentListRow = new shipmentListRow("id 1", "Date 11", "Date 12");
         shipmentRowList.add(mShipmentListRow);
