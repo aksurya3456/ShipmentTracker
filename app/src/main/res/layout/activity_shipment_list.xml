@@ -2,7 +2,6 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,24 +9,63 @@
     tools:context="com.msupply.shipmenttracker.ShipmentList">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="450dp"
+        android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_shipment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/error_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center_horizontal"
+            android:text="No Shipments Pending"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/action_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="clear"
-        android:text="Clear Data" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/refresh_button"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:onClick="refresh"
+            android:text="Refresh" />
+
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="close"
+            android:text="Close" />
+
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:onClick="clear"
+            android:text="Log Out" />
+    </LinearLayout>
 
 </LinearLayout>

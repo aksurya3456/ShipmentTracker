@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by abhishek on 9/10/17.
@@ -15,15 +16,14 @@ import java.util.List;
 public class shipmentListAdapter extends RecyclerView.Adapter<shipmentListAdapter.myViewHolder> {
     private List<shipmentListRow> shipmentListRowList;
 
-    public shipmentListAdapter(List<shipmentListRow> listEntity)
-    {
+    public shipmentListAdapter(List<shipmentListRow> listEntity) {
         shipmentListRowList = listEntity;
     }
 
     @Override
     public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.shipment_list_row,parent,false);
+                .inflate(R.layout.shipment_list_row, parent, false);
         return new myViewHolder(itemView);
     }
 
@@ -41,12 +41,15 @@ public class shipmentListAdapter extends RecyclerView.Adapter<shipmentListAdapte
         return shipmentListRowList.size();
     }
 
-    public class myViewHolder extends RecyclerView.ViewHolder
-    {
+    public void appendList(Map<String, String> params) {
+
+    }
+
+
+    public class myViewHolder extends RecyclerView.ViewHolder {
         public TextView shipmentId, pickUpDate, deliveryDate;
 
-        public myViewHolder(View view)
-        {
+        public myViewHolder(View view) {
             super(view);
             shipmentId = (TextView) view.findViewById(R.id.shipment_id);
             pickUpDate = (TextView) view.findViewById(R.id.pickUpDate);
