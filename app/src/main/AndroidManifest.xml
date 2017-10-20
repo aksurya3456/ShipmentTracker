@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".OTPValidation" />
-        <activity android:name=".ShipmentList"></activity>
+        <activity android:name=".ShipmentList" />
+        <activity
+            android:name=".ShipmentDetails"
+            android:parentActivityName=".ShipmentList"></activity>
     </application>
 
 </manifest>

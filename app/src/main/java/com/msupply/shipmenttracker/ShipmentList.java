@@ -1,5 +1,6 @@
 package com.msupply.shipmenttracker;
 
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
     private RecyclerView recyclerView;
     private shipmentListAdapter mAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
 
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
+
 
         //If session is timed out, this will load the homescreen
         sessionChecker();
@@ -52,7 +55,7 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
         recyclerView.setBackgroundColor(Color.WHITE);
         recyclerView.setVisibility(View.GONE);
         findViewById(R.id.error_message).setVisibility(View.GONE);
-        mAdapter = new shipmentListAdapter(shipmentRowList);
+        mAdapter = new shipmentListAdapter(shipmentRowList, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -79,6 +82,7 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
 
 
     private void sessionChecker() {
+        //insert code for redirecting to shipping progress if shipping is on the way
         sessionManager = new SessionManager(this);
         if (!sessionManager.isLoggedIn()) onSessionTimedOut();
     }
@@ -120,6 +124,20 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
     @Override
     public void errorListener() {
         findViewById(R.id.error_message).setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void buttonClickListener(String shipmentID) {
+        Toast.makeText(this, "Shipment Id: " + shipmentID, Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "Row clicked for shipment ID: " + shipmentID);
+
+        sessionManager.setKEY_SHIPMENT_ID(shipmentID);
+
+        //while(!sessionManager.getKEY_SHIPMENT_ID().equals(shipmentID)){}
+
+        Intent shipmentDetailsIntent = new Intent(this, ShipmentDetails.class);
+        startActivity(shipmentDetailsIntent);
+
     }
 
 

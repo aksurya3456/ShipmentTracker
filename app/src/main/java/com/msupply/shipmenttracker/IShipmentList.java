@@ -13,4 +13,6 @@ public interface IShipmentList {
     public void onSessionTimedOut();
 
     public void errorListener();
+
+    public void buttonClickListener(String shipmentID);
 }

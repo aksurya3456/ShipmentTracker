@@ -13,10 +13,10 @@ public class SessionManager {
     private final String PREF_NAME = "shipmentTracker";
     private final String KEY_LOGIN = "isLoggedIn";
     private final String KEY_MOBILE = "mobile";
-    private Context _context;
-
-    private SharedPreferences sharedPreferences;
+    private final String KEY_SHIPMENT_ID = "shipmentId";
     SharedPreferences.Editor edit;
+    private Context _context;
+    private SharedPreferences sharedPreferences;
 
     public SessionManager(Context context)
     {
@@ -29,6 +29,15 @@ public class SessionManager {
     {
         edit.putBoolean(KEY_LOGIN,true);
         edit.putString(KEY_MOBILE,mobile);
+        edit.commit();
+    }
+
+    public String getKEY_SHIPMENT_ID() {
+        return sharedPreferences.getString(KEY_SHIPMENT_ID, null);
+    }
+
+    public void setKEY_SHIPMENT_ID(String shipmentId) {
+        edit.putString(KEY_SHIPMENT_ID, shipmentId);
         edit.commit();
     }
 
