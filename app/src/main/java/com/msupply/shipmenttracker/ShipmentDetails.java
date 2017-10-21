@@ -16,6 +16,8 @@ public class ShipmentDetails extends AppCompatActivity {
         sessionManager = new SessionManager(this);
 
         TextView info_text = (TextView) findViewById(R.id.info_details);
-        info_text.setText(sessionManager.getKEY_SHIPMENT_ID());
+        info_text.setText(sessionManager.getKEY_SHIPMENT_ID()/* +
+        " " + sessionManager.getKEY_PICKUP_DATE() + " " +
+        sessionManager.getKEY_DELIVERY_DATE()*/);
     }
 }

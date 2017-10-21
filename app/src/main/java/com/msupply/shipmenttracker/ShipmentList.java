@@ -91,6 +91,7 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
     public void prepareListData(JSONArray list) {
         shipmentListRow mShipmentListRow;
         findViewById(R.id.rv_shipment).setVisibility(View.VISIBLE);
+        shipmentRowList.clear();
 
 
         for (int i = 0; i < list.length(); i++) {
@@ -127,11 +128,13 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
     }
 
     @Override
-    public void buttonClickListener(String shipmentID) {
+    public void buttonClickListener(String shipmentID, String pickUpDate, String deliveryDate) {
         Toast.makeText(this, "Shipment Id: " + shipmentID, Toast.LENGTH_SHORT).show();
         Log.i(TAG, "Row clicked for shipment ID: " + shipmentID);
 
         sessionManager.setKEY_SHIPMENT_ID(shipmentID);
+        /*sessionManager.setKEY_PICKUP_DATE(pickUpDate);
+        sessionManager.setKEY_DELIVERY_DATE(deliveryDate);*/
 
         //while(!sessionManager.getKEY_SHIPMENT_ID().equals(shipmentID)){}
 
@@ -147,7 +150,7 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
     }
 
     public void APIError(VolleyError error) {
-        Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Server error: " + error.toString(), Toast.LENGTH_LONG).show();
     }
 
     public void clear(View v) {

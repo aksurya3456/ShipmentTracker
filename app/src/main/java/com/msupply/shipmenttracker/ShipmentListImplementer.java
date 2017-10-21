@@ -100,6 +100,7 @@ public class ShipmentListImplementer {
                 hidepDialog();
                 VolleyLog.d(TAG, "Error: " + error.getMessage());
                 Log.d(TAG, "Error: " + error.getMessage());
+                mIShipmentList.APIError(error);
                 //mIShipmentList.displayError(error.getMessage());
             }
         }) {

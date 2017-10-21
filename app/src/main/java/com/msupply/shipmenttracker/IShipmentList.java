@@ -1,5 +1,7 @@
 package com.msupply.shipmenttracker;
 
+import com.android.volley.VolleyError;
+
 import org.json.JSONArray;
 
 /**
@@ -14,5 +16,7 @@ public interface IShipmentList {
 
     public void errorListener();
 
-    public void buttonClickListener(String shipmentID);
+    public void buttonClickListener(String shipmentID, String pickUpDate, String deliveryDate);
+
+    public void APIError(VolleyError error);
 }

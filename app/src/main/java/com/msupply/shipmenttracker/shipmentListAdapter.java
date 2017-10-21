@@ -40,7 +40,7 @@ public class shipmentListAdapter extends RecyclerView.Adapter<shipmentListAdapte
         holder.shipment_row_linear_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mIShipmentList.buttonClickListener(mShipmentListRow.getShipmentId());
+                mIShipmentList.buttonClickListener(mShipmentListRow.getShipmentId(), mShipmentListRow.getPickUpDate(), mShipmentListRow.getDeliveryDate());
             }
         });
 

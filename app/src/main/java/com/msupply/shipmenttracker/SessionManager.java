@@ -14,6 +14,8 @@ public class SessionManager {
     private final String KEY_LOGIN = "isLoggedIn";
     private final String KEY_MOBILE = "mobile";
     private final String KEY_SHIPMENT_ID = "shipmentId";
+    private final String KEY_PICKUP_DATE = "pickUpDate";
+    private final String KEY_DELIVERY_DATE = "deliveryDate";
     SharedPreferences.Editor edit;
     private Context _context;
     private SharedPreferences sharedPreferences;
@@ -57,4 +59,21 @@ public class SessionManager {
         return sharedPreferences.getString(KEY_MOBILE, null);
     }
 
+    public String getKEY_DELIVERY_DATE() {
+        return sharedPreferences.getString(KEY_DELIVERY_DATE, null);
+    }
+
+    public void setKEY_DELIVERY_DATE(String delivery_date) {
+        edit.putString(KEY_DELIVERY_DATE, delivery_date);
+        edit.commit();
+    }
+
+    public String getKEY_PICKUP_DATE() {
+        return sharedPreferences.getString(KEY_PICKUP_DATE, null);
+    }
+
+    public void setKEY_PICKUP_DATE(String pickup_date) {
+        edit.putString(KEY_PICKUP_DATE, pickup_date);
+        edit.commit();
+    }
 }
