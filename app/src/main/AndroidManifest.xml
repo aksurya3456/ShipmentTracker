@@ -30,7 +30,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ShipmentDetails"
-            android:label="Shipment Details"
+            android:label="@string/shipment_details_label"
             android:parentActivityName=".ShipmentList"
             android:screenOrientation="portrait" />
         <activity android:name=".TrackingDetails"></activity>

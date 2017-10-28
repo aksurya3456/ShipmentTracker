@@ -10,4 +10,8 @@
     <string name="shipment_details_page_no_button_clicked">Please go back and select the shipment you want to deliver</string>
     <string name="shipment_details_page_yes_button_text">Yes</string>
     <string name="shipment_details_page_no_button_text">No</string>
+    <string name="shipment_list_reload_button">Reload</string>
+    <string name="shipment_list_close_button">Close</string>
+    <string name="logout_text">Log Out</string>
+    <string name="shipment_details_label">Shipment Details</string>
 </resources>
