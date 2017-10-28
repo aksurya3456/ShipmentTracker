@@ -87,10 +87,16 @@
                     android:text="Phone Number: " />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:text="7736156660"
                     android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/ic_launcher" />
             </TableRow>
 
             <TableRow>
@@ -204,6 +210,12 @@
                     android:layout_height="wrap_content"
                     android:text="8544297111"
                     android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/ic_launcher" />
             </TableRow>
 
             <TableRow>
@@ -253,7 +265,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="I have picked up the shipment"
+            android:onClick="agreeButtonClick"
+            android:text="@string/shipment_details_page_start_tracking_button"
             android:textAllCaps="false" />
 
         <Button
@@ -261,7 +274,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:onClick="goBack"
-            android:text="Please Go Back"
+            android:text="@string/shipment_details_page_go_back"
             android:textAllCaps="false" />
     </LinearLayout>
 

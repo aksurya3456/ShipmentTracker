@@ -33,6 +33,7 @@
             android:label="Shipment Details"
             android:parentActivityName=".ShipmentList"
             android:screenOrientation="portrait" />
+        <activity android:name=".TrackingDetails"></activity>
     </application>
 
 </manifest>

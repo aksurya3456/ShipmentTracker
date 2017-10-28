@@ -3,4 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shipment_details_page_start_tracking_button">I have picked up the shipment</string>
+    <string name="shipment_details_page_go_back">Go back</string>
+    <string name="warning_message_before_start_tracking">Are You Sure? \nOnce You Select Yes, tracking will start and you will only be able to stop it when shipment is delivered.</string>
+    <string name="shipment_details_page_yes_button_clicked">You have started shipment</string>
+    <string name="shipment_details_page_no_button_clicked">Please go back and select the shipment you want to deliver</string>
+    <string name="shipment_details_page_yes_button_text">Yes</string>
+    <string name="shipment_details_page_no_button_text">No</string>
 </resources>
