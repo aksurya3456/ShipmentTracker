@@ -7,6 +7,7 @@
     tools:context="com.msupply.shipmenttracker.TrackingDetails">
 
     <TextView
+        android:id="@+id/tracking_shipment_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tracking page" />
@@ -15,7 +16,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:onClick="startAlarmButton"
+        android:text="Trigger Alarm"
+        android:visibility="gone" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="endAlarmButton"
+        android:text="Stop Alarm" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:onClick="endTripButton"
         android:text="@string/end_trip_button"
         tools:text="Package Delivered" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="minimiseButton"
+        android:text="Minimise App" />
+
 </LinearLayout>

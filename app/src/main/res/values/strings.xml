@@ -16,4 +16,5 @@
     <string name="shipment_details_label">Shipment Details</string>
     <string name="end_trip_button">End Trip</string>
     <string name="end_trip_toast_message">You have finished the trip</string>
+
 </resources>

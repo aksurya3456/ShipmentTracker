@@ -33,7 +33,17 @@
             android:label="@string/shipment_details_label"
             android:parentActivityName=".ShipmentList"
             android:screenOrientation="portrait" />
-        <activity android:name=".TrackingDetails"></activity>
+        <activity android:name=".TrackingDetails" />
+
+        <service
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@ public class SessionManager {
     private final String KEY_PICKUP_DATE = "pickUpDate";
     private final String KEY_DELIVERY_DATE = "deliveryDate";
     private final String KEY_SHIPMENT_STARTED = "shipmentStarted";
+    private final String KEY_ALARM_SERVICE = "alarmServiceON";
     SharedPreferences.Editor edit;
     private Context _context;
     private SharedPreferences sharedPreferences;
@@ -90,5 +91,19 @@ public class SessionManager {
 
     public boolean getKEY_SHIPMENT_STARTED() {
         return sharedPreferences.getBoolean(KEY_SHIPMENT_STARTED, false);
+    }
+
+    public void setKEY_ALARM_SERVICE_true() {
+        edit.putBoolean(KEY_ALARM_SERVICE, true);
+        edit.commit();
+    }
+
+    public void setKEY_ALARM_SERVICE_false() {
+        edit.putBoolean(KEY_ALARM_SERVICE, false);
+        edit.commit();
+    }
+
+    public boolean getKEY_ALARM_SERVICE() {
+        return sharedPreferences.getBoolean(KEY_ALARM_SERVICE, false);
     }
 }
