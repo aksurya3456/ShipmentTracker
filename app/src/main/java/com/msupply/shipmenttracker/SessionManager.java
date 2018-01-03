@@ -16,6 +16,7 @@ public class SessionManager {
     private final String KEY_SHIPMENT_ID = "shipmentId";
     private final String KEY_PICKUP_DATE = "pickUpDate";
     private final String KEY_DELIVERY_DATE = "deliveryDate";
+    private final String KEY_SHIPMENT_STARTED = "shipmentStarted";
     SharedPreferences.Editor edit;
     private Context _context;
     private SharedPreferences sharedPreferences;
@@ -75,5 +76,19 @@ public class SessionManager {
     public void setKEY_PICKUP_DATE(String pickup_date) {
         edit.putString(KEY_PICKUP_DATE, pickup_date);
         edit.commit();
+    }
+
+    public void setKEY_SHIPMENT_STARTED_setTrue() {
+        edit.putBoolean(KEY_SHIPMENT_STARTED, true);
+        edit.commit();
+    }
+
+    public void setKEY_SHIPMENT_STARTED_setFalse() {
+        edit.putBoolean(KEY_SHIPMENT_STARTED, false);
+        edit.commit();
+    }
+
+    public boolean getKEY_SHIPMENT_STARTED() {
+        return sharedPreferences.getBoolean(KEY_SHIPMENT_STARTED, false);
     }
 }

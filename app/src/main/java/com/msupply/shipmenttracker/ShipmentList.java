@@ -84,7 +84,13 @@ public class ShipmentList extends AppCompatActivity implements IShipmentList {
     private void sessionChecker() {
         //insert code for redirecting to shipping progress if shipping is on the way
         sessionManager = new SessionManager(this);
-        if (!sessionManager.isLoggedIn()) onSessionTimedOut();
+        if
+                (!sessionManager.isLoggedIn()) onSessionTimedOut();
+        else if (sessionManager.getKEY_SHIPMENT_STARTED()) {
+            Intent trackingDetailsIntent = new Intent(this, TrackingDetails.class);
+            startActivity(trackingDetailsIntent);
+        }
+
     }
 
     @Override

@@ -68,6 +68,7 @@ public class ShipmentDetails extends AppCompatActivity {
     }
 
     public void positiveButtonClickListen() {
+        sessionManager.setKEY_SHIPMENT_STARTED_setTrue();
         Toast.makeText(this, R.string.shipment_details_page_yes_button_clicked, Toast.LENGTH_SHORT).show();
         Intent trackingActivityIntent = new Intent(this, TrackingDetails.class);
         startActivity(trackingActivityIntent);
